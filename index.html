@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify - Web Player: Music for everyone</title>
+
+    <!--Adding font-awesome library-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!--Adding the spotify icon-->
+    <link rel="icon" href="./assets/logo.png">
+
+    <!--Linking the css stylesheet-->
+    <link rel="stylesheet" href="./style.css">
+
+    <!--Adding google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <main>
+        <section class="sidebar">
+            <div class="nav">
+                <div class="nav-option home">
+                    <i class="fa-solid fa-house"></i>
+                    <a href="#">Home</a>
+                </div>
+                <div class="nav-option">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <a href="#">Search</a>
+                </div>
+            </div>
+
+            <div class="library">
+                <div class="options">
+                    <div class="lib-options nav-option">
+                        <img src="./assets/library_icon.png" alt="library_icon">
+                        <a href="#">Your Library</a>
+                    </div>
+                    <div class="icons">
+                        <i class="fa-solid fa-plus"></i>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+                <div class="lib-boxes">
+                    <div class="box">
+                        <p class="box-p1">Create your first playlist</p>
+                        <p class="box-p2">It's easy, we'll help you</p>
+                        <button class="badge">Create playlist</button>
+                    </div>
+                    <div class="box">
+                        <p class="box-p1">Let's find some podcasts to follow</p>
+                        <p class="box-p2">We'll keep you updated on new episodes</p>
+                        <button class="badge">Browse podcasts</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="content">
+            <div class="sticky-nav">
+                <div class="sticky-icons">
+                    <img src="./assets/backward_icon.png">
+                    <img src="./assets/forward_icon.png" class="hide">
+                </div>
+                <div class="sticky-buttons">
+                    <button class="badge hide">Explore Premium</button>
+                    <button class="badge"><i class="fa-regular fa-circle-down"></i>Install App</button>
+                    <i class="fa-regular fa-user"></i>
+                </div>
+            </div>
+
+
+            <div class="albums">
+                <h2>Recently Played</h2>
+                <div class="cards-container">
+                    <div class="card">
+                        <img src="./assets/taylorswift.jpeg" alt="Taylor Swift" class="roundedImg">
+                        <p class="card-title">Taylor Swift</p>
+                        <p class="card-info"> Artist </p>
+                    </div>
+                    <div class="card">
+                        <img src="./assets/harrystyles.jpeg" alt="Taylor Swift" class="roundedImg">
+                        <p class="card-title">Harry Styles</p>
+                        <p class="card-info"> Artist </p>
+                    </div>
+                </div>
+                <div class="title-card">
+                    <h2>Great first audiobooks</h2>
+                    <h5>Show more</h5>
+                </div>
+                <div class="cards-container">
+                    <div class="card">
+                        <img src="./assets/spare.jpeg" alt="Prince Harry">
+                        <p class="card-title">Spare</p>
+                        <p class="card-info">Prince Harry, The Duke of Sussex</p>
+                    </div>
+                    <div class="card">
+                        <img src="./assets/audiobooks.jpeg" alt="Jennette McCurdy">
+                        <p class="card-title">I'm Glad My Mom Died</p>
+                        <p class="card-info">Jennette McCurdy</p>
+                    </div>
+                    <div class="card">
+                        <img src="./assets/homebody.jpeg" alt="Rupi Kaur">
+                        <p class="card-title">Home Body</p>
+                        <p class="card-info">Rupi Kaur</p>
+                    </div>
+                    <div class="card">
+                        <img src="./assets/michelleobama.jpeg" alt="Michelle Obama">
+                        <p class="card-title">Becoming</p>
+                        <p class="card-info">Michelle Obama</p>
+                    </div>
+                </div>
+                <div class="title-card">
+                    <h2>Try something else</h2>
+                    <h5>Show more</h5>
+                </div>
+                <div class="cards-container">
+                    <div class="card">
+                        <img src="./assets/travisscott.jpeg" alt="Travis Scott">
+                        <p class="card-title">Hot Hits Canada</p>
+                        <p class="card-info">The hottest tracks in the North. Cover:Travis Scott </p>
+                    </div>
+                    <div class="card">
+                        <img src="./assets/vivalatino.jpeg" alt="Viva Latino">
+                        <p class="card-title">Viva Latino</p>
+                        <p class="card-info">Today's top Latin hits, elevando nuestra musicia....</p>
+                    </div>
+                    <div class="card">
+                        <img src="./assets/punjabi.jpeg" alt="Punjabi">
+                        <p class="card-title">Hot Hits Punjabi</p>
+                        <p class="card-info">Catch the hottest Punjabi tracks with Sidhu Moose...</p>
+                    </div>
+                    <div class="card">
+                        <img src="./assets/internet.jpeg" alt="Poster">
+                        <p class="card-title">big on the internet</p>
+                        <p class="card-info">iykyk</p>
+                    </div>
+                </div>
+                <div class="title-card">
+                    <h2>Featured Charts</h2>
+                    <h5>Show more</h5>
+                </div>
+                <div class="cards-container">
+                    <div class="card">
+                        <img src="./assets/topsongsglobal.png" alt="Top songs Global">
+                        <p class="card-title">Top Songs - Global</p>
+                        <p class="card-info">Your weekly update of the most played tracks right...</p>
+                    </div>
+                    <div class="card">
+                        <img src="./assets/topsongscanada.png" alt="Top Songs Canada">
+                        <p class="card-title">Top Songs - Canada</p>
+                        <p class="card-info">Your weekly update of the most played tracks right...</p>
+                    </div>
+                    <div class="card">
+                        <img src="./assets/topglobal.jpeg" alt="Top 50 Global">
+                        <p class="card-title">Top 50 - Global</p>
+                        <p class="card-info">Your daily update of the most played tracks right...</p>
+                    </div>
+                    <div class="card">
+                        <img src="./assets/topcanada.jpeg" alt="Top 50 Canada">
+                        <p class="card-title">Top 50 - Canada</p>
+                        <p class="card-info">Your daily update of the most played tracks right...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="line"></div>
+            </div>
+        </section>
+
+
+        <section class="music-player">
+            <div class="song-played"></div>
+            <div class="player">
+                <div class="player-icons">
+                    <img src="./assets/player_icon1.png" alt="icon 1" class="icon-grey">
+                    <img src="./assets/player_icon2.png" alt="icon 2" class="icon-grey">
+                    <img src="./assets/player_icon3.png" alt="icon 3" class="icon-white">
+                    <img src="./assets/player_icon4.png" alt="icon 4" class="icon-grey">
+                    <img src="./assets/player_icon5.png" alt="icon 5" class="icon-grey">
+                </div>
+                <div class="progress-bar">
+                    <span>0:00</span>
+                    <input type="range" min="0" max="100" step="1" value="100">
+                    <span>2:52</span>
+                </div>
+            </div>
+            <div class="controls"></div>
+        </section>
+    </main>
+</body>
+
+</html>
