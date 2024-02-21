@@ -95,6 +95,10 @@ a {
   margin: 0.2em 1em 0em 1em;
 }
 
+.box i{
+  cursor: pointer;
+}
+
 .txt {
   margin-top: 5%;
   position: relative;
@@ -113,6 +117,15 @@ a {
   margin-top: 0.1em;
 }
 
+.badge {
+  background-color: #fff;
+  border-radius: 100px;
+  padding: 0.6rem 1.25rem;
+  font-weight: 700;
+  border: none;
+  margin-top: 0.5em;
+}
+
 .txt i {
   opacity: 0;
   position: absolute;
@@ -121,6 +134,7 @@ a {
   font-size: 1.8rem;
   color: #1bd760;
   transition: opacity 0.4s ease, transform 0.4s ease;
+  cursor: pointer;
 }
 
 .content {
@@ -182,7 +196,6 @@ a {
   border-radius: 0.25em;
   margin-left: 1.4em;
   transition: background-color 0.3s ease;
-  cursor: pointer;
   position: relative;
 }
 
@@ -220,6 +233,7 @@ a {
   background-color: #000;
   border-radius: 50%;
   transition: opacity 0.4s ease, transform 0.4s ease;
+  cursor: pointer;
 }
 
 .albums h5 {
@@ -247,6 +261,7 @@ h6 {
 
 /* Section 3 - Music Player Styles */
 .music-player {
+  /*background-color: #000;*/
   background-color: #000;
   position: fixed;
   bottom: 0%;
@@ -257,10 +272,6 @@ h6 {
   align-items: center;
 }
 
-.song-played {
-  width: 25%;
-}
-
 .player {
   width: 50%;
 }
@@ -269,6 +280,19 @@ h6 {
   display: flex;
   justify-content: center;
   cursor: pointer;
+}
+
+.player-icons i{
+  font-size: 1.4rem;
+  margin: 0.6em 1em 0em 1em;
+  opacity: 0.6;
+}
+
+.icon-grey {
+  height: 1.1em;
+  width: 1.1em;
+  opacity: 0.6;
+  margin: 1em;
 }
 
 .pause {
@@ -283,18 +307,108 @@ h6 {
   display: inline;
 }
 
-.icon-grey {
-  height: 1.1em;
-  width: 1.1em;
-  opacity: 0.6;
-  margin: 1em;
-}
-
 .icon-white {
   height: 2.2em;
   width: 2.2em;
   opacity: 1;
   margin: 0.5em;
+}
+
+/*Current music that is being played*/
+.wave{
+  width: 2em;
+  height: 2em;
+  margin-right: 0.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wave .wave1 {
+  width: 3px;
+  height: 0.8em;
+  background-color: #1bd760;
+  margin-right: 3px;
+  border-radius: 10px 10px 0px 0px;
+  animation: unset; /*unset meaning no animation, so it can be set by js later on*/
+}
+
+.song-played{
+  display: flex;
+  align-items: center;
+  margin-left: 4em;
+  margin-top: 0.8em;
+  width: 25%;
+}
+
+.song-played img{
+  width: 3em;
+  height: 3em;
+  border-radius: 0.3em;
+  margin-right: 0.7em;  
+}
+
+.song-played h5{
+  opacity: 0.7;
+  margin: 0.2rem;
+}
+
+.controls{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.controls i{
+  margin-right: 0.4em;
+}
+
+#volume{
+  appearance: none;
+  width: 6.5vw;
+  height: 0.4em;
+  background: #1bd760;
+  border-radius: 2em;
+  cursor: pointer;
+  margin: 0.45em 0.6em;
+}
+
+#volume::-webkit-slider-thumb {
+  appearance: none;
+  background-color: #ddd;
+  height: 1em;
+  width: 1em;
+  border-radius: 50%; 
+}
+
+
+/*JS Wave class*/
+.active .wave1{
+  height: 0.9em; 
+  animation-delay: 0.4s; 
+  animation: wave .5s linear infinite;
+}
+
+.active .wave1:nth-child(2){
+  height: 1.3em;  
+  animation-delay: 0.6s;
+}
+
+.active .wave1:nth-child(3){
+  height: 0.6em; 
+  animation-delay: 0.2s; 
+}
+
+@keyframes wave{
+  0%{
+    height: 1em;
+  }
+  50%{
+    height: 1.5em;
+  }
+  100%{
+    height: 1em;
+  }
 }
 
 .progress-bar {
@@ -309,28 +423,22 @@ h6 {
 
 /* Go on this website for more details about how to style sliders (range input type) */
 /* https://www.quirksmode.org/blog/archives/2015/11/styling_and_scr.html */
-input[type="range"] {
-  width: 65%;
-  margin: 0em 0.5em;
+#seek{
   appearance: none;
-  background-color: transparent;
+  width: 40vw;
+  height: 0.4em;
+  background: #1bd760;
+  border-radius: 2em;
   cursor: pointer;
+  margin: 0.45em 0.6em;
 }
 
-input[type="range"]::-webkit-slider-runnable-track {
-  background-color: #ddd;
-  border-radius: 3em;
-  height: 0.3em;
-}
-
-input[type="range"]::-webkit-slider-thumb {
+#seek::-webkit-slider-thumb {
   appearance: none;
+  background-color: #ddd;
   height: 1em;
   width: 1em;
-  background-color: #fff;
-  border-radius: 50%;
-  margin-top: -0.4em;
-  display: none;
+  border-radius: 50%; 
 }
 
 .controls {
@@ -349,15 +457,6 @@ input[type="range"]::-webkit-slider-thumb {
 .albums h2:hover,
 .albums h5:hover {
   text-decoration: underline;
-}
-
-input[type="range"]:hover::-webkit-slider-runnable-track {
-  background-color: #1bd760;
-}
-
-input[type="range"]:hover::-webkit-slider-thumb {
-  background-color: #ddd;
-  display: block;
 }
 
 ::-webkit-scrollbar {
