@@ -1,6 +1,84 @@
 const music = new Audio('audio/2.mp3');
 //music.play();
 
+let songs = [
+    {
+        id: 1,
+        title: "We Are Never Ever Getting Back Together",
+        artist: "Taylor Swift"
+    },
+    {
+        id: 2,
+        title: "As It Was",
+        artist: "Harry Styles"
+    },
+    {
+        id: 3,
+        title: "Goosebumps",
+        artist: "Travis Scott"
+    },
+    {
+        id: 4,
+        title: "Viva Latino",
+        artist: "Various Artists"
+    },
+    {
+        id: 5,
+        title: "Lahore",
+        artist: "Guru Randhawa"
+    },
+    {
+        id: 6,
+        title: "Water",
+        artist: "Tyla"
+    },
+    {
+        id: 7,
+        title: "Lover",
+        artist: "Taylor Swift"
+    },
+    {
+        id: 8,
+        title: "No Tears Left To Cry",
+        artist: "Ariana Grande"
+    },
+    {
+        id: 9,
+        title: "Save Your Tears",
+        artist: "The Weeknd (ft. Ariana Grande)"
+    },
+    {
+        id: 10,
+        title: "Starboy",
+        artist: "The Weeknd, Daft Punk"
+    },
+    {
+        id: 11,
+        title: "Gorgeous",
+        artist: "Taylor Swift"
+    },
+    {
+        id: 12,
+        title: "Cardigan",
+        artist: "Taylor Swift"
+    },
+    {
+        id: 13,
+        title: "Holy",
+        artist: "Justin Bieber"
+    },
+    {
+        id: 14,
+        title: "Happier",
+        artist: "Marshmello"
+    },
+    {
+        id: 15,
+        title: "Paris",
+        artist: "The Chainsmokers"
+    }
+];
+
 let wave = document.querySelector(".wave");
 let play = document.querySelector(".play");
 let pause = document.querySelector(".pause");
@@ -23,6 +101,8 @@ play.addEventListener('click', togglePlayPause);
 pause.addEventListener('click', togglePlayPause);
 
 let poster = document.getElementById("poster");
+let singer = document.getElementById("singer-name");
+let songName = document.getElementById("track-name");
 let index = 0;
 Array.from(document.getElementsByClassName('btn')).forEach((e) => {
     e.addEventListener('click', (el) => {
@@ -36,6 +116,17 @@ Array.from(document.getElementsByClassName('btn')).forEach((e) => {
 
         music.play();
         wave.classList.add("active");
+
+        //Getting the id from the songs array that we have made through the index value
+        let titleTrack = songs.filter((el) => {
+            return el.id == index;
+        });
+
+        titleTrack.forEach(el => {
+            let {title, artist} = el;
+            singer.innerHTML = title;
+            songName.innerHTML = artist;
+        })
     });
 });
 
