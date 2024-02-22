@@ -177,3 +177,50 @@ function forwardHandler() {
     }
     updateSongDetails();
 }
+
+
+
+
+//Functionality for shuffling, repeating and changing to the next track
+let repeat = document.querySelector(".repeat");
+let shuffle = document.querySelector(".shuffle");
+
+shuffle.addEventListener("click", toggleOpacity);
+repeat.addEventListener("click", toggleOpacity);
+
+function toggleOpacity() {
+    this.style.opacity = this.style.opacity === "1" ? "0.7" : "1";
+}
+
+//Changing to the next song song when the song ends
+music.addEventListener('ended', () => {
+    if (shuffle.style.opacity === "1") {
+        shuffleMusic();
+    } else if (repeat.style.opacity === "1") {
+        repeatMusic();
+    } else {
+        nextMusic();
+    }
+});
+
+function nextMusic(){
+    if (index == songs.length) {
+        index = 1;
+    } else {
+        index++;
+    }
+    updateSongDetails();
+}
+
+function repeatMusic(){
+    updateSongDetails();
+}
+
+function shuffleMusic(){
+    if (index == songs.length) {
+        index = 1;    
+    } else {
+        index = Math.floor((Math.random() * songs.length) + 1);
+    }
+    updateSongDetails();
+}
