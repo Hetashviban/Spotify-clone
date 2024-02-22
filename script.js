@@ -1,84 +1,30 @@
-const music = new Audio('audio/2.mp3');
+//the initial song that will load
+const music = new Audio("audio/2.mp3");
 //music.play();
 
-let songs = [
-    {
-        id: 1,
-        title: "We Are Never Ever Getting Back Together",
-        artist: "Taylor Swift"
-    },
-    {
-        id: 2,
-        title: "As It Was",
-        artist: "Harry Styles"
-    },
-    {
-        id: 3,
-        title: "Goosebumps",
-        artist: "Travis Scott"
-    },
-    {
-        id: 4,
-        title: "Viva Latino",
-        artist: "Various Artists"
-    },
-    {
-        id: 5,
-        title: "Lahore",
-        artist: "Guru Randhawa"
-    },
-    {
-        id: 6,
-        title: "Water",
-        artist: "Tyla"
-    },
-    {
-        id: 7,
-        title: "Lover",
-        artist: "Taylor Swift"
-    },
-    {
-        id: 8,
-        title: "No Tears Left To Cry",
-        artist: "Ariana Grande"
-    },
-    {
-        id: 9,
-        title: "Save Your Tears",
-        artist: "The Weeknd (ft. Ariana Grande)"
-    },
-    {
-        id: 10,
-        title: "Starboy",
-        artist: "The Weeknd, Daft Punk"
-    },
-    {
-        id: 11,
-        title: "Gorgeous",
-        artist: "Taylor Swift"
-    },
-    {
-        id: 12,
-        title: "Cardigan",
-        artist: "Taylor Swift"
-    },
-    {
-        id: 13,
-        title: "Holy",
-        artist: "Justin Bieber"
-    },
-    {
-        id: 14,
-        title: "Happier",
-        artist: "Marshmello"
-    },
-    {
-        id: 15,
-        title: "Paris",
-        artist: "The Chainsmokers"
-    }
+//Defining the array of songs
+const songs = [
+    { id: 1, title: "We Are Never Ever Getting Back Together", artist: "Taylor Swift" },
+    { id: 2, title: "As It Was", artist: "Harry Styles" },
+    { id: 3, title: "Goosebumps", artist: "Travis Scott" },
+    { id: 4, title: "Viva Latino", artist: "Various Artists" },
+    { id: 5, title: "Lahore", artist: "Guru Randhawa" },
+    { id: 6, title: "Water", artist: "Tyla" },
+    { id: 7, title: "Lover", artist: "Taylor Swift" },
+    { id: 8, title: "No Tears Left To Cry", artist: "Ariana Grande" },
+    { id: 9, title: "Save Your Tears", artist: "The Weeknd (ft. Ariana Grande)" },
+    { id: 10, title: "Starboy", artist: "The Weeknd, Daft Punk" },
+    { id: 11, title: "Gorgeous", artist: "Taylor Swift" },
+    { id: 12, title: "Cardigan", artist: "Taylor Swift" },
+    { id: 13, title: "Holy", artist: "Justin Bieber" },
+    { id: 14, title: "Happier", artist: "Marshmello" },
+    { id: 15, title: "Paris", artist: "The Chainsmokers" }
 ];
 
+
+
+
+//Function to toggle play/pause
 let wave = document.querySelector(".wave");
 let play = document.querySelector(".play");
 let pause = document.querySelector(".pause");
@@ -97,44 +43,62 @@ function togglePlayPause() {
     }
 }
 
-play.addEventListener('click', togglePlayPause);
-pause.addEventListener('click', togglePlayPause);
+play.addEventListener("click", togglePlayPause);
+pause.addEventListener("click", togglePlayPause);
 
-let poster = document.getElementById("poster");
-let singer = document.getElementById("singer-name");
-let songName = document.getElementById("track-name");
+
+
+
+//Retrieves the song details and the song itself based on the index
 let index = 0;
-Array.from(document.getElementsByClassName('btn')).forEach((e) => {
-    e.addEventListener('click', (el) => {
-        let index = el.target.id;
+Array.from(document.getElementsByClassName("btn")).forEach((e) => {
+    e.addEventListener("click", (el) => {
+        index = el.target.id; //Gets the ID of the clicked element and assign it to the variable "index"
+        //console.log(index);
 
-        play.style.display = "none";
-        pause.style.display = "inline";
+        play.style.display = "none";//Hide the "play" button
+        pause.style.display = "inline"; //Display the "pause" button
 
-        music.src = `audio/${index}.mp3`;
-        poster.src = `assets/${index}.jpeg`;
-
-        music.play();
-        wave.classList.add("active");
-
-        //Getting the id from the songs array that we have made through the index value
-        let titleTrack = songs.filter((el) => {
-            return el.id == index;
-        });
-
-        titleTrack.forEach(el => {
-            let {title, artist} = el;
-            singer.innerHTML = title;
-            songName.innerHTML = artist;
-        })
+        updateSongDetails(); //Updating the song details based on the new index
     });
 });
 
+
+
+
+//Function to update song details
+let poster = document.getElementById("poster");
+let singer = document.getElementById("singer-name");
+let songName = document.getElementById("track-name");
+function updateSongDetails() {
+    music.src = `audio/${index}.mp3`;
+    poster.src = `assets/${index}.jpeg`;
+
+    music.play();
+    wave.classList.add("active");
+
+    play.style.display = "none";
+    pause.style.display = "inline";
+
+    //Getting the id from the songs array that we have made through the index value
+    let titleTrack = songs.filter((el) => {
+        return el.id == index;
+    });
+
+    titleTrack.forEach((el) => {
+        let { title, artist } = el;
+        singer.innerHTML = artist;
+        songName.innerHTML = title;
+    });
+}
+
+
+
+//Event Listener to update the time according to the song being played
 let currentStart = document.getElementById("currentStart");
 let currentEnd = document.getElementById("currentEnd");
 let seek = document.getElementById("seek");
-
-music.addEventListener('timeupdate', () => {
+music.addEventListener("timeupdate", () => {
     let music_curr = music.currentTime; //Current time of the music being played
     let music_dur = music.duration; //The duration of the music that is played
     //console.log(dur);
@@ -158,6 +122,58 @@ music.addEventListener('timeupdate', () => {
     //console.log(seek.value);
 });
 
-seek.addEventListener( 'change', () => {
-    music.currentTime = seek.value * music.duration / 100;
+
+
+
+//Event Listener for updating the seek bar
+seek.addEventListener("change", () => {
+    music.currentTime = (seek.value * music.duration) / 100;
 });
+
+
+
+
+//Event listener for volume change
+let volume_icon = document.querySelector(".fa-volume-low");
+let volume = document.getElementById("volume");
+
+volume.addEventListener("change", () => {
+    let vol = volume.value / 10;
+    music.volume = vol;
+    if (volume.value == 0) {
+        volume_icon.classList.add("fa-volume-off");
+        volume_icon.classList.remove("fa-volume-low", "fa-volume-high");
+    } else if (volume.value > 0 && volume.value <= 3) {
+        volume_icon.classList.remove("fa-volume-off", "fa-volume-high");
+        volume_icon.classList.add("fa-volume-low");
+    } else {
+        volume_icon.classList.remove("fa-volume-off", "fa-volume-low");
+        volume_icon.classList.add("fa-volume-high");
+    }
+});
+
+
+
+
+//Function and Event Handlers to handle forward and backward button click
+let backward = document.querySelector(".fa-backward-step");
+let forward = document.querySelector(".fa-forward-step");
+
+backward.addEventListener("click", backwardHandler);
+forward.addEventListener("click", forwardHandler);
+
+function backwardHandler() {
+    index--;
+    if (index < 1) {
+        index = songs.length;
+    }
+    updateSongDetails();
+}
+
+function forwardHandler() {
+    index++;
+    if (index > songs.length) {
+        index = 1;
+    }
+    updateSongDetails();
+}

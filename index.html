@@ -212,13 +212,13 @@
                 </div>
                 <img src="./assets/2.jpeg" alt="" id="poster">
                 <div class="title">
+                    <h5 id="track-name">As It Was</h5>
                     <h5 id="singer-name">Harry Styles</h5>
-                    <h5 id="track-name">As it Was</h5>
                 </div>
             </div>
             <div class="player">
                 <div class="player-icons">
-                    <img src="./assets/player_icon1.png" alt="icon 1" class="icon-grey">
+                    <i class="fa-solid fa-shuffle"></i>
                     <i class="fa-solid fa-backward-step"></i>
                     <img src="./assets/player_icon3.png" alt="icon 3" class="icon-white play">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -227,7 +227,7 @@
                             d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.25 5C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5m3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5" />
                     </svg>
                     <i class="fa-solid fa-forward-step"></i>
-                    <img src="./assets/player_icon5.png" alt="icon 5" class="icon-grey">
+                    <i class="fa-solid fa-repeat"></i>
                 </div>
                 <div class="progress-bar">
                     <span id="currentStart">0:00</span>
@@ -236,8 +236,10 @@
                 </div>
             </div>
             <div class="controls">
-                <i class="fa-solid fa-volume-off"></i>
+                <i class="fa-solid fa-volume-low"></i>
                 <input type="range" min="0" max="5" id="volume" value="3">
+                <div class="volume-slider"></div>
+                <div class="dot" id="volume-dot"></div>
             </div>
         </section>
 
