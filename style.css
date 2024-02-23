@@ -597,7 +597,6 @@ h6 {
 
 /*Small Devices - Large Phones/Portrait tablets*/
 @media screen and (min-width: 600px) and (max-width: 767px) {
-  
   .song-played {
     margin: 0%;
   }
@@ -643,8 +642,6 @@ h6 {
     width: 0;
     content-visibility: auto;
     transition: width 0.5s ease;
-    position: absolute;
-    z-index: 1;
   }
 
   .sidebar-visible {
@@ -735,8 +732,8 @@ h6 {
 
 /*Extra Small Devices - Phones*/
 @media screen and (min-width: 350px) and (max-width: 600px) {
-  main{
-    padding: 0%;
+  .sidebar {
+    margin: 0%;
   }
 
   /*Music Player Section*/
@@ -815,8 +812,6 @@ h6 {
     content-visibility: auto;
     transition: width 0.5s ease;
     margin-right: 0.4em;
-    position: absolute;
-    z-index: 1;
   }
 
   .sidebar-visible {
@@ -998,8 +993,6 @@ h6 {
     content-visibility: auto;
     transition: width 0.5s ease;
     margin-right: 0.4em;
-    position: absolute;
-    z-index: 1;
   }
 
   .sidebar-visible {
