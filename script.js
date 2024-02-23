@@ -181,7 +181,7 @@ function forwardHandler() {
 
 
 
-//Functionality for shuffling, repeating and changing to the next track
+//Functionality for shuffling, repeating and changing to the next track when the music ends
 let repeat = document.querySelector(".repeat");
 let shuffle = document.querySelector(".shuffle");
 
@@ -189,6 +189,11 @@ shuffle.addEventListener("click", toggleOpacity);
 repeat.addEventListener("click", toggleOpacity);
 
 function toggleOpacity() {
+    if (this === shuffle && repeat.style.opacity === "1") {
+        repeat.style.opacity = "0.7";
+    } else if (this === repeat && shuffle.style.opacity === "1") {
+        shuffle.style.opacity = "0.7";
+    }
     this.style.opacity = this.style.opacity === "1" ? "0.7" : "1";
 }
 
@@ -224,3 +229,24 @@ function shuffleMusic(){
     }
     updateSongDetails();
 }
+
+
+
+
+
+// Hamburger menu functionality
+const sidebar = document.querySelector('.sidebar');
+const hamburger_menu = document.querySelector('.fa-bars');
+const cross = document.querySelector('.fa-xmark');
+
+hamburger_menu.addEventListener('click', () => {
+    sidebar.classList.toggle('sidebar-visible');
+    cross.style.display = 'block'; // Show the cross icon when sidebar is visible
+    hamburger_menu.style.display = 'none'; // Hide the hamburger menu when sidebar is visible
+});
+
+cross.addEventListener('click', () => {
+    sidebar.classList.remove('sidebar-visible');
+    cross.style.display = 'none'; // Hide the cross icon when sidebar is hidden
+    hamburger_menu.style.display = 'block'; // Show the hamburger menu when sidebar is hidden
+});

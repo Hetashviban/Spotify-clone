@@ -27,14 +27,22 @@ a {
   font-weight: 700;
 }
 
-.nav {
+.nav{
   display: flex;
-  flex-direction: column;
   background-color: #121212;
-  border-radius: 1rem;
-  justify-content: center;
-  height: 6.25em;
+  align-items: center;
   padding: 0.5em 0.75em;
+  height: 6.25em;
+  border-radius: 1rem;
+}
+
+.nav i{
+  font-size: 1.15em;
+  cursor: pointer;
+}
+
+.navigation{
+  padding-right: 7em;
 }
 
 .nav-option {
@@ -49,6 +57,10 @@ a {
 .nav-option i {
   font-size: 1.1rem;
   margin: 0.75em 0.75em 0em 1em;
+}
+
+.fa-xmark{
+  display: none;
 }
 
 .library {
@@ -97,7 +109,7 @@ a {
   margin: 0.2em 1em 0em 1em;
 }
 
-.box i{
+.box i {
   cursor: pointer;
 }
 
@@ -127,13 +139,12 @@ a {
   border: none;
   margin-top: 0.5em;
   cursor: pointer;
-  transition: transform 0.2s ease; 
+  transition: transform 0.2s ease;
 }
 
 .badge:hover {
-  transform: scale(1.1); 
+  transform: scale(1.1);
 }
-
 
 .txt i {
   opacity: 0;
@@ -183,6 +194,10 @@ a {
   font-size: 1rem;
 }
 
+.fa-bars {
+  display: none;
+}
+
 .albums h2 {
   margin-left: 1em;
 }
@@ -212,11 +227,11 @@ a {
   margin-left: 1em;
 }
 
-.card p:nth-of-type(1) {
+.card-title {
   font-weight: 700;
 }
 
-.card p:nth-of-type(2) {
+.card-info {
   font-weight: 600;
   font-size: 0.8rem;
   opacity: 0.6;
@@ -291,13 +306,15 @@ h6 {
   cursor: pointer;
 }
 
-.player-icons i:nth-of-type(2),  .player-icons i:nth-of-type(3) {
+.player-icons i:nth-of-type(2),
+.player-icons i:nth-of-type(3) {
   font-size: 1.4rem;
   margin: 0.6em 1em 0em 1em;
   opacity: 0.5;
 }
 
-.player-icons i:first-child, .player-icons i:last-child {
+.player-icons i:first-child,
+.player-icons i:last-child {
   opacity: 0.5;
   font-size: 1.2rem;
   margin: 0.8em 0.5em 0em 0.5em;
@@ -322,7 +339,7 @@ h6 {
 }
 
 /*Current music that is being played*/
-.wave{
+.wave {
   width: 2em;
   height: 2em;
   margin-right: 0.2em;
@@ -340,69 +357,69 @@ h6 {
   animation: unset; /*unset meaning no animation, so it can be set by js later on*/
 }
 
-.song-played{
+.song-played {
   display: flex;
   align-items: center;
   margin-left: 3em;
   width: 25%;
 }
 
-.song-played img{
+.song-played img {
   width: 3em;
   height: 3em;
   border-radius: 0.3em;
-  margin-right: 0.7em; 
+  margin-right: 0.7em;
 }
 
-.song-played h5{
+.song-played h5 {
   opacity: 0.6;
   margin: 0.2rem;
 }
 
 /*JS Wave class*/
-.active .wave1{
-  height: 0.9em; 
-  animation-delay: 0.4s; 
-  animation: wave .5s linear infinite;
+.active .wave1 {
+  height: 0.9em;
+  animation-delay: 0.4s;
+  animation: wave 0.5s linear infinite;
 }
 
-.active .wave1:nth-child(2){
-  height: 1.3em;  
+.active .wave1:nth-child(2) {
+  height: 1.3em;
   animation-delay: 0.6s;
 }
 
-.active .wave1:nth-child(3){
-  height: 0.6em; 
-  animation-delay: 0.2s; 
+.active .wave1:nth-child(3) {
+  height: 0.6em;
+  animation-delay: 0.2s;
 }
 
-@keyframes wave{
-  0%{
+@keyframes wave {
+  0% {
     height: 1em;
   }
-  50%{
+  50% {
     height: 1.5em;
   }
-  100%{
+  100% {
     height: 1em;
   }
 }
 
-.sticky-icons i{
+.sticky-icons i {
   padding: 0.8em;
   cursor: pointer;
   opacity: 0.7;
 }
 
-.sticky-icons i:hover{
+.sticky-icons i:hover {
   opacity: 1;
 }
 
-.sticky-buttons i{
+.sticky-buttons i {
   cursor: pointer;
 }
 
-.sticky-buttons i:hover{
+.sticky-buttons i:hover {
   transform: scale(1.1);
 }
 
@@ -418,7 +435,7 @@ h6 {
 
 /* Go on this website for more details about how to style sliders (range input type) */
 /* https://www.quirksmode.org/blog/archives/2015/11/styling_and_scr.html */
-#seek{
+#seek {
   appearance: none;
   width: 40vw;
   height: 0.4em;
@@ -433,7 +450,7 @@ h6 {
   background-color: #ddd;
   height: 1em;
   width: 1em;
-  border-radius: 50%; 
+  border-radius: 50%;
 }
 
 .controls {
@@ -443,11 +460,11 @@ h6 {
   justify-content: center;
 }
 
-.controls i{
+.controls i {
   margin-right: 0.4em;
 }
 
-#volume{
+#volume {
   appearance: none;
   width: 6.5vw;
   height: 0.4em;
@@ -462,7 +479,7 @@ h6 {
   background-color: #ddd;
   height: 1em;
   width: 1em;
-  border-radius: 50%; 
+  border-radius: 50%;
 }
 
 /* Animations */
@@ -515,14 +532,550 @@ h6 {
   transform: translateX(-10px);
 }
 
-.player-icons i:hover{
+.player-icons i:hover {
   opacity: 1;
 }
 
-/* Media queries */
-@media (max-width: 1000px) {
-  .sticky-icons img:nth-child(2),
-  .sticky-buttons button:nth-child(1) {
+
+
+/** Media queries */
+/*Medium Devices - Tablet view*/
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .sticky-buttons .hide {
     display: none;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+  }
+
+  .card {
+    width: 12.5em;
+    height: 17.5em;
+  }
+
+  .card img {
+    /* border-radius: 3px; */
+    width: 10em;
+    margin: 1em 1em 0em 1em;
+  }
+
+  .box {
+    height: 4em;
+  }
+
+  .box img {
+    width: 3.5em;
+    height: 3.5em;
+  }
+
+  .box p {
+    font-size: 0.8rem;
+  }
+
+  .sidebar {
+    width: 16em;
+    margin-right: 0.4em;
+  }
+
+  .title h5 {
+    font-size: 0.8rem;
+  }
+
+  .wave {
+    margin-right: 0.5em;
+  }
+
+  .song-played {
+    margin-left: 0.7em;
+  }
+  
+  .lib-boxes{
+    height: 100%;
+  }
+}
+
+/*Small Devices - Large Phones/Portrait tablets*/
+@media screen and (min-width: 600px) and (max-width: 767px) {
+  .song-played {
+    margin: 0%;
+  }
+
+  .song-played img {
+    width: 2.7em;
+    height: 2.7em;
+    margin-right: 0.3em;
+  }
+
+  .song-played h5 {
+    font-size: 0.7rem;
+  }
+
+  .sticky-buttons .hide {
+    display: none;
+  }
+
+  .fa-angle-left,
+  .fa-angle-right {
+    display: none;
+  }
+
+  .badge {
+    padding: 0.5rem 1rem;
+    font-size: 0.77rem;
+  }
+
+  .sticky-buttons i {
+    font-size: 0.85rem;
+  }
+
+  .sticky-buttons button:nth-child(2) i {
+    margin-right: 0.5em;
+    font-size: 0.7rem;
+  }
+
+  .fa-bars {
+    display: inline;
+  }
+
+  .sidebar {
+    width: 0;
+    content-visibility: auto;
+    transition: width 0.5s ease;
+  }
+
+  .sidebar-visible {
+    width: 16em;
+  }
+
+  /*Styling the card*/
+  .card {
+    width: 10em;
+    height: 15em;
+    margin-left: 0.8em;
+  }
+
+  .card img {
+    width: 8em;
+    margin: 1em 1em 0em 1em;
+  }
+
+  .card-title {
+    font-size: 0.85rem;
+  }
+
+  .card-info {
+    font-size: 0.75rem;
+  }
+
+  .recent h2,
+  .title-card h2 {
+    font-size: 1.3rem;
+  }
+
+  .title-card h5 {
+    display: none;
+  }
+
+  .card i {
+    opacity: 1;
+    font-size: 2.5em;
+    position: absolute;
+    top: 3em;
+  }
+
+  /*The library*/
+  .box {
+    height: 3.5em;
+  }
+
+  .box img {
+    width: 3em;
+    height: 3em;
+  }
+
+  .box p {
+    font-size: 0.75rem;
+  }
+
+  .txt {
+    margin-top: 0.5em;
+  }
+
+  .txt i {
+    opacity: 1;
+    font-size: 1.4em;
+    position: absolute;
+    left: 6.3em;
+  }
+
+  .nav {
+    height: 5.3em;
+  }
+
+  .nav i,
+  .nav a,
+  .options a {
+    font-size: 1rem;
+  }
+
+  .lib-options img {
+    height: 1em;
+    width: 1em;
+  }
+
+  .icons i {
+    padding: 0em 0.7em;
+    font-size: 0.9rem;
+  }
+}
+
+/*Extra Small Devices - Phones*/
+@media screen and (min-width: 350px) and (max-width: 600px) {
+  .sidebar {
+    margin: 0%;
+  }
+
+  /*Music Player Section*/
+  .song-played {
+    margin: 0%;
+    width: 30%;
+    margin-left: 0.3em;
+  }
+
+  .player {
+    width: 70%;
+  }
+
+  .controls {
+    display: none;
+    width: 0%;
+  }
+
+  .song-played img {
+    width: 2em;
+    height: 2em;
+    margin-right: 0.3em;
+  }
+
+  .song-played h5 {
+    font-size: 0.7rem;
+  }
+
+  .music-player {
+    width: 100%;
+    height: 6em;
+  }
+
+  .player-icons i:nth-of-type(2),
+  .player-icons i:nth-of-type(3) {
+    font-size: 1rem;
+    margin-top: 0.7em;
+  }
+
+  .player-icons i:first-child,
+  .player-icons i:last-child {
+    font-size: 1rem;
+    margin-top: 0.9em;
+    font-size: 0.9rem;
+  }
+
+  .pause {
+    height: 2em;
+    width: 2em;
+    margin-top: 0.2em;
+  }
+
+  .icon-white {
+    height: 1.5em;
+    width: 1.5em;
+    margin: 0.5em;
+  }
+
+  /*Navbar*/
+  .fa-angle-left,
+  .fa-angle-right,
+  .sticky-buttons button {
+    display: none;
+  }
+
+  .sticky-buttons i {
+    font-size: 0.85rem;
+  }
+
+  .fa-bars {
+    display: inline;
+  }
+
+  .sidebar {
+    width: 0;
+    content-visibility: auto;
+    transition: width 0.5s ease;
+    margin-right: 0.4em;
+  }
+
+  .sidebar-visible {
+    width: 13em;
+  }
+
+  /*Styling the card*/
+  .card {
+    width: 8em;
+    height: 12em;
+    margin-left: 0.8em;
+  }
+
+  .card img {
+    width: 6em;
+    margin: 1em 1em 0em 1em;
+  }
+
+  .card-title {
+    font-size: 0.6rem;
+  }
+
+  .card-info {
+    font-size: 0.65rem;
+  }
+
+  .recent h2,
+  .title-card h2 {
+    font-size: 1.1rem;
+  }
+
+  .title-card h5 {
+    display: none;
+  }
+
+  .card i {
+    opacity: 1;
+    font-size: 2em;
+  }
+
+  /*Library section*/
+  .nav {
+    height: 5em;
+    padding: 0%;
+  }
+
+  .nav-option {
+    line-height: 1.2em;
+    padding-left: 1em;
+  }
+
+  .nav i,
+  .nav a,
+  .lib-options a {
+    font-size: 0.7rem;
+    margin: 0%;
+  }
+
+  .lib-options img {
+    display: none;
+  }
+
+  .box {
+    height: 3.5em;
+  }
+
+  .box img {
+    width: 2.75em;
+    height: 2.75em;
+  }
+
+  .box p {
+    font-size: 0.6rem;
+  }
+
+  .txt {
+    margin-top: 0.5em;
+  }
+
+  .txt i {
+    opacity: 1;
+    font-size: 1.3em;
+    position: absolute;
+    left: 4.8em;
+  }
+}
+
+
+
+
+
+
+@media screen and (max-width: 350px){
+  .sidebar {
+    margin: 0%;
+  }
+
+  /*Music Player Section*/
+  .song-played {
+    margin: 0%;
+    width: 30%;
+    margin-left: 0.3em;
+  }
+
+  .wave{
+    display: none;
+  }
+
+  .player {
+    width: 70%;
+  }
+
+  .controls {
+    display: none;
+    width: 0%;
+  }
+
+  .song-played img {
+    width: 2em;
+    height: 2em;
+    margin-right: 0.3em;
+  }
+
+  .song-played h5 {
+    font-size: 0.5rem;
+    margin: 0%;
+  }
+
+  .music-player {
+    width: 100%;
+    height: 6em;
+  }
+
+  .player-icons i:nth-of-type(2),
+  .player-icons i:nth-of-type(3) {
+    font-size: 0.7rem;
+    margin-top: 0.7em;
+  }
+
+  .player-icons i:first-child,
+  .player-icons i:last-child {
+    margin-top: 0.9em;
+    font-size: 0.6rem;
+  }
+
+  .icon-white {
+    height: 1.3em;
+    width: 1.3em;
+    margin: 0.2em;
+  }
+
+  #seek{
+    width: 8em;
+  }
+  
+  #currentStart,
+  #currentEnd{
+    font-size: 0.6rem;
+    padding-top: 0.2em;
+  }
+
+  /*Navbar*/
+  .fa-angle-left,
+  .fa-angle-right,
+  .sticky-buttons button {
+    display: none;
+  }
+
+  .sticky-buttons i {
+    font-size: 0.85rem;
+  }
+
+  .fa-bars {
+    display: inline;
+  }
+
+  .sidebar {
+    width: 0;
+    content-visibility: auto;
+    transition: width 0.5s ease;
+    margin-right: 0.4em;
+  }
+
+  .sidebar-visible {
+    width: 13em;
+  }
+
+  /*Styling the card*/
+  .card {
+    width: 7em;
+    height: 10.5em;
+    margin-left: 0.8em;
+  }
+
+  .card img {
+    width: 5em;
+    margin: 1em 1em 0em 1em;
+  }
+
+  .card-title {
+    font-size: 0.5rem;
+  }
+
+  .card-info {
+    font-size: 0.55rem;
+  }
+
+  .recent h2,
+  .title-card h2 {
+    font-size: 1.1rem;
+  }
+
+  .title-card h5 {
+    display: none;
+  }
+
+  .card i {
+    opacity: 1;
+    font-size: 1.3em;
+  }
+
+  /*Library section*/
+  .nav {
+    height: 5em;
+    padding: 0%;
+  }
+
+  .nav-option {
+    line-height: 1.2em;
+    padding-left: 1em;
+  }
+
+  .nav i,
+  .nav a,
+  .lib-options a {
+    font-size: 0.7rem;
+    margin: 0%;
+  }
+
+  .lib-options img {
+    display: none;
+  }
+
+  .box {
+    height: 3.5em;
+  }
+
+  .box img {
+    width: 2.75em;
+    height: 2.75em;
+  }
+
+  .box p {
+    font-size: 0.6rem;
+  }
+
+  .txt {
+    margin-top: 0.5em;
+  }
+
+  .txt i {
+    opacity: 1;
+    font-size: 1.3em;
+    position: absolute;
+    left: 4.8em;
   }
 }
