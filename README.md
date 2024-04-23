@@ -1,4 +1,4 @@
-# 🎧 Spotify Clone
+# 🎧 Spotify Clone (https://hetashviban.github.io/Spotify-clone/)
 A Spotify clone created using HTML, CSS, and JavaScript. This project aims to replicate the look and feel of Spotify's interface and includes functionalities such as playing and pausing music, shuffling, repeating music, volume control, track progress bar, and skip forward/backward functionalities.
 
 ## 🛠️ Technologies:
